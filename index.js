@@ -3,7 +3,7 @@ const app = express()
 
 // req = require, res = response
 app.get('', function(req, res) {
-  res.send('Hello World')
+  res.send('Home')
 })
 
 app.get('/about', function(req, res) {
@@ -18,16 +18,16 @@ app.post('/user', function(req, res) {
   res.send('Post User')
 })
 
-app.put('/user', function(req, res) {
-  res.send('Put User')
+app.put('/user/:uname', function(req, res) {
+  res.send(req.params)
 })
 
-app.delete('/user', function(req, res) {
-  res.send('Delete User')
+app.delete('/user/:id', function(req, res) {
+  res.send(req.params.id)
 })
 
 
 // Binds and listens for connections
 app.listen(3000, function() {
-  console.log('Server is okay')
+  console.log('Server is run')
 })
